@@ -1,0 +1,20 @@
+{
+  "targets": [
+    {
+      "target_formula": "Li2Mg2(WO4)3",
+      "structure_available": true,
+      "ground_truth_precursors": ["WO3", "Li2CO3", "MgO"]
+    },
+    {
+      "target_formula": "Ni0.5Zn0.5Fe2O4",
+      "structure_available": false,
+      "ground_truth_precursors": ["NiO", "ZnO", "Fe2O3"]
+    },
+    {
+      "target_formula": "La0.85K0.10MnO3",
+      "structure_available": false,
+      "ground_truth_precursors": ["La2O3", "K2CO3", "MnCO3"]
+    }
+  ]
+}
+
