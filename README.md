@@ -47,9 +47,10 @@ For each target, the script prints:
 
 At the end, it prints aggregate toy metrics and a toy combinatorial-ceiling summary.
 
-## Data contents
+## Data processing guide (no bundled data)
 
-This conceptual upload now includes a real `data/` directory for reviewer inspection.
+To keep this repository lightweight and avoid distributing large raw/processed files, the `data/` folder is **not bundled**.
+Instead, we provide the processing code used for the main pipeline preprocessing flow.
 
 ### Data sources used in the main pipeline
 
@@ -61,24 +62,41 @@ The data used in the main pipeline is derived from the following public sources:
 - **Lee et al. (2025), text-mined solid-state recipes with impurity phases**
   - Repository: https://github.com/slee-lab/solid-state-recipes-with-impurity
 
-- **Materials Project structures** (for structure-aware context where available)
+- **Materials Project structures** (for structure-aware context where available in the full pipeline)
   - Documentation: https://docs.materialsproject.org/apps/explorer-apps/synthesis-explorer/background
-  - CIF files in this upload are placed under `data/cifs/` and correspond to Materials Project IDs.
 
-- `data/raw/`
-  - Original/ingested raw dataset files used for preprocessing.
-  - Includes top-level raw files and source-specific subfolders (`kononova2019/`, `lee2025/`).
+### Included preprocessing code
 
-- `data/processed/`
-  - Processed parquet tables and split metadata used for downstream experiments.
-  - Includes merged tables, normalized variants, split files, and OOD split tables.
+This repository includes the key preprocessing scripts and data utilities:
 
-- `data/cifs/`
-  - CIF crystal structure files (Materials Project style IDs), used for structure-aware context.
+- `scripts/01_build_kononova_processed.py`
+- `scripts/02_build_lee2025_processed.py`
+- `scripts/03_merge_datasets.py`
+- `src/config.py`
+- `src/data/` (parsers, normalization, validation helpers)
+
+### Expected raw-data layout
+
+Place downloaded source files in:
+
+- `data/raw/SS_rxns_80806.json.gz`
+- `data/raw/solid-state_dataset_2019-06-27_upd.json`
+- `data/raw/kononova2019/...`
+- `data/raw/lee2025/...`
+
+### Run preprocessing
+
+From repository root:
+
+1. `python scripts/01_build_kononova_processed.py`
+2. `python scripts/02_build_lee2025_processed.py`
+3. `python scripts/03_merge_datasets.py`
+
+Outputs are written under `data/processed/` (created locally).
 
 ### Intended use for reviewers
 
-- Reviewers can inspect the data organization and representative artifacts directly.
+- Reviewers can inspect the data provenance and the exact preprocessing workflow code.
 - The runnable demo (`concept_demo.py`) is conceptual and does not consume the full production data pipeline.
 - Full operational training/inference code remains intentionally omitted for patent-related non-enabling disclosure.
 
