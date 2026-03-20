@@ -145,6 +145,7 @@ Reviewers or collaborators who require access to specific artifacts that do not 
 them from the authors:
    1. Yaser Mike Banad: bana@ou.edu
    2. Gourab Datta: gourab.datta-1@ou.edu
+
 Please add a short justification for your request and the exact files you need.
 
 See `PATENT_NOTICE.md`.
