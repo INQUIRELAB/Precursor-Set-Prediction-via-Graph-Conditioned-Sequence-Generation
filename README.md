@@ -139,6 +139,13 @@ Readers can understand:
 For operational reproduction, contact the authors for the appropriate restricted artifacts if applicable.
 
 ## License / patent notice
+This project is the subject of a U.S. patent filing.
+To protect the IP, certain files and implementation details are withheld from public release.
+Reviewers or collaborators who require access to specific artifacts that do not jeopardize the patent may request
+them from the authors:
+   1. Yaser Mike Banad: bana@ou.edu
+   2. Gourab Datta: gourab.datta-1@ou.edu
+Please add a short justification for your request and the exact files you need.
 
 See `PATENT_NOTICE.md`.
 
